@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>this is my page</title>
+</head>
+<body>
+<button id="myButton">Click me!</button>
+<form id="myForm">
+  <label for="myInput">Enter a value:</label>
+  <input type="text" id="myInput">
+  <button type="submit">Submit</button>
+</form>
+
+
+<script>
+ 
+  const myButton = document.querySelector('#myButton');
+  myButton.addEventListener('click', function() {
+    console.log('Button clicked!');
+  });
+
+ 
+  const myInput = document.querySelector('#myInput');
+  myInput.addEventListener('mouseover', function() {
+    console.log('Mouse over input!');
+  });
+  myInput.addEventListener('mouseout', function() {
+    console.log('Mouse out of input!');
+  });
+
+  // Select the form element and add a submit event listener
+  const myForm = document.querySelector('#myForm');
+  myForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const inputValue = myInput.value.trim(); // get input value and trim whitespace
+    if (inputValue.length === 0) {
+      console.log('Input value is empty.'); // validation check for empty input
+    } else {
+      console.log('Input value:', inputValue); // log input value if not empty
+      myForm.reset(); // reset form input after successful submission
+    }
+  });
+</script>
+</body>
+</html
